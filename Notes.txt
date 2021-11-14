@@ -1,0 +1,126 @@
+# Lecture 14: Classes and Attributes
+
+## Attributes
+
+- thing to add attributes to
+
+## Optional parameters
+
+- all function parameters are general required
+
+  e.g. of reg parameter
+
+  def say_hello(name):
+    print(f"Hello, (name)!")
+
+- Function parameters can optionally be given default values. If a parameter has a default value, it is no longer required when the function is called with a param
+
+    (default param must always come last, because it allows for calling of the method with no param, so default)
+
+    e.g. or a optional parameter
+
+    def say_hello(name = "Nahi"):
+      print(f"Hello, (name)!")
+
+
+Classes (integration, how they are designed, how useful they are)
+
+Class design exercise: Time
+
+Attributes:
+  - Hours
+  - Minutes
+  - Seconds
+
+Logic:
+  - Print the Time
+  - Change the Time
+  - Compare times
+  - Convert time object to an integer
+
+Two software development methodologies
+  - Prototype and path: a development plan that involves writing a rough draft of a program, testing, and correcting error as they are found
+
+  - Designed development: a development plan that involves high level insight into the problem and more planning than incremental development or prototype development
+
+Quick Aside: Types of functions
+
+  Pure function: a function that does not modify any of the objects it receives as arguments. Most pure functions are fruitful
+
+  Modifier: A function that changes one or more of the objects it receives as arguments. Most modifiers are void; that is, they return none
+
+  The type of functions we designed for our time class are pure functions
+
+
+Review: object-oriented programming
+
+  Python is an oop language
+  3 decisions
+  1. what object to model
+  2. What properties do they have
+  3. What actions can you perform on the object
+
+Methods:
+
+  - Class objects can have attributes
+
+  e.g.
+    - String Class
+    - Turtle Classes
+    - Dictionary Class
+      given a dictionary, use dictionaryName.key() and then print(dict_key)
+
+
+Special Methosd
+
+  Python provides extra functionality w/ special methods you can add to Classes
+
+  Special methods gie more control over class, and can integrat it with ython's language features
+
+  all special method names begin and end with double underscores e.g. __init__()
+
+  Features of special methods:
+    - Initialize your object as it is being created
+    - Type conversion
+    - Operator overloading
+
+Special Methods: __init__()
+
+  The __init__() method is special becaue python automaticall calls it as an obj which is being instantiated
+
+  If we add parameters to the __init__() method, then those parameters become required in order to instantiate an object
+
+  We can use __init__() method with our Time class as a way of making hours, minutes, and seconds requiredto create a Time object
+
+  e.g.
+
+  class Time:
+    def __init__(self, hours = 0, minutes = 0, seconds = 0):  ## this is the python alternative to multiple constructors through optional (default) parameters
+      self.hours = hours  ## self refers to the object itself
+      self.minutes = minutes
+      self.seconds = seconds
+
+      t = Time(3) ## hours will be set to 3 everything else to default
+      t2 = Time(seconds = 2) ## seconds will be set to 2 everything else default
+
+Special methods: __string__()
+
+  The __str__() method is special because Python automatically calls it whenever it tries to convert an object to a string
+
+Special methods: Operator overloading
+
+  Operator overloading: changing the behavior of an operator like + so it works with a programmer-defined Type
+
+  We can define operator overload methods in a class to allow it to be used with operators
+    e.g.
+
+    We can overload operators such as relational operators or regular operators (+, -, /, *, etc.)
+
+Type-based dispatch(similar to guardian case) - programming pattern that checks the type of an operand and invoke different functions for different types
+
+operand on the left always determines the operator method to call (e.g. __add__, etc.)
+  ** to account for this, every operator has reversed overloads
+
+  Syntax:
+
+  __radd__() is the reversed overload method for __add__()
