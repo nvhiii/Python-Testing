@@ -124,3 +124,71 @@ operand on the left always determines the operator method to call (e.g. __add__,
   Syntax:
 
   __radd__() is the reversed overload method for __add__()
+
+
+10/21:
+
+Exceptions & Exception Handling
+  - tells u file, which line in a file, which module (also prints out what line the error comes from)
+  - then tells u the type of error
+
+  - Exception (raised exception) (like throwing exception)
+
+Handling Exceptions
+  - if we have code that is dangerous, than we can put it in  try/except block
+
+  e.g.
+
+  my_list = [1, 2, 3]
+
+  try:
+    print(my_list[4])
+  except:
+    print("oh no!")
+  print("Continuing...")
+
+Raising Exceptions:
+  - raise exception in the try block
+
+  Sytax in try block: (catch in except block)
+  throw raise Exception("oh no, something broke!")
+
+Type of Exceptions:
+  - IndexError
+  - KeyError
+  - MemoryError
+  - RecursionError
+  - TypeError
+
+Re-throwing Exceptions
+  - by raising an exception in a except block, this will get bubbled up
+
+Is-A and Has-A Relationships
+  - Is-A relationship indicating that one object is the same type as another (methods and functionality)
+  - Has-A uses attributes
+  - Cannot say one relationship is stronger than another
+
+Inheritance
+
+  - Python's way of establishing an is-a relationship between classes. It allows you to create a class that inherits
+
+Creating a child classes
+
+  Syntax:
+
+  class RatedPlayer(TableTennisPLayer)
+        ^^ this is sub    ^^ this is superclass
+
+Expanding child class functonality: Overriding
+
+  Syntax:
+
+  same method name(diff args)
+
+  ## overloading is handled by optional args
+
+Expanding child class functionality: Extending
+
+  Syntax:
+
+  super().methodName(the args which are already defined in the method signature in the superclass)
